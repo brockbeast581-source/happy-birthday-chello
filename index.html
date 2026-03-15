@@ -202,6 +202,48 @@ h1, h2{
   line-height:1.8;
   display:none;
 }
+  /* CONFETTI / RIBBONS */
+.confetti{
+  position: fixed;
+  top: -30px;
+  z-index: 1;
+  pointer-events: none;
+  animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall{
+  0%{
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100%{
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* FLOATING BALLOONS */
+.balloon{
+  position: fixed;
+  bottom: -80px;
+  z-index: 1;
+  pointer-events: none;
+  animation: balloonFloat linear forwards;
+}
+
+@keyframes balloonFloat{
+  0%{
+    transform: translateY(0) translateX(0);
+    opacity: 0.95;
+  }
+  50%{
+    transform: translateY(-50vh) translateX(20px);
+  }
+  100%{
+    transform: translateY(-120vh) translateX(-20px);
+    opacity: 0;
+  }
+}
 </style>
 </head>
 <body>
@@ -371,29 +413,40 @@ function nextPage(n){
   }
 }
 
-/* COUNTDOWN */
-/* COUNTDOWN */
-const target = new Date("March 16, 2026 23:59:59").getTime();
+/* COUNTDOWN / BIRTHDAY MODE */
+const startDate = new Date("March 16, 2026 00:00:00").getTime();
+const endDate   = new Date("March 16, 2026 23:59:59").getTime();
 
 const countdownInterval = setInterval(() => {
   let now = new Date().getTime();
-  let d = target - now;
 
-  if (d <= 0) {
-    document.getElementById("countdown").innerHTML = "🎉 It's Her Special Day Baby 💖🎂";
-    clearInterval(countdownInterval);
-    return;
+  // BEFORE BIRTHDAY → SHOW COUNTDOWN
+  if (now < startDate) {
+    let d = startDate - now;
+
+    let days = Math.floor(d / (1000 * 60 * 60 * 24));
+    let h = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let m = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
+    let s = Math.floor((d % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerHTML =
+      "⏳ " + days + "d " + h + "h " + m + "m " + s + "s";
   }
 
-  let days = Math.floor(d / (1000 * 60 * 60 * 24));
-  let h = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  let m = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
-  let s = Math.floor((d % (1000 * 60)) / 1000);
+  // DURING HER BIRTHDAY → BIRTHDAY MODE
+  else if (now >= startDate && now <= endDate) {
+    document.getElementById("countdown").innerHTML = "🎉 Happyyyy 18th Birthday Babyyyy 💖🎂";
+    startBirthdayEffects();
+    clearInterval(countdownInterval);
+  }
 
-  document.getElementById("countdown").innerHTML =
-    days + "d " + h + "h " + m + "m " + s + "s";
+  // AFTER HER BIRTHDAY → SHOW MEMORY MESSAGE
+  else {
+    document.getElementById("countdown").innerHTML = "💖 Her special day may be over, but our love keeps celebrating forever 🐰🎂";
+    clearInterval(countdownInterval);
+  }
+
 }, 1000);
-
 /* MUSIC */
 function toggleMusic(){
  let music=document.getElementById("music");
@@ -725,9 +778,25 @@ function createFloatingHeart(){
     heart.remove();
   }, 8000);
 }
+
+/* PASTE BIRTHDAY EFFECTS JS HERE */
+
 window.onload=function(){
   showPage(1);
   setInterval(createFloatingHeart, 350);
+};
+window.onload=function(){
+  showPage(1);
+  setInterval(createFloatingHeart, 350);
+
+  let now = new Date().getTime();
+  let startDate = new Date("March 16, 2026 00:00:00").getTime();
+  let endDate   = new Date("March 16, 2026 23:59:59").getTime();
+
+  if (now >= startDate && now <= endDate) {
+    startBirthdayEffects();
+    document.getElementById("countdown").innerHTML = "🎉 Happyyyy 18th Birthday Babyyyy 💖🎂";
+  }
 };
   
 </script>
