@@ -639,10 +639,20 @@ Forever yours,
 Your favourite long paragraph guy 😌💌`;
 
 function typeLetter() {
-  if(i < typingText.length){
-    document.getElementById("typing").innerHTML += typingText.charAt(i);
+  if (i < typingText.length) {
+    const char = typingText.charAt(i);
+    document.getElementById("typing").innerHTML += char;
     i++;
-    setTimeout(typeLetter, 30);
+
+    // Add longer pause after punctuation
+    let delay = 50; // base speed
+    if (char === "." || char === "!" || char === "?" || char === "…") {
+      delay = 300; // pause longer at sentence end
+    } else if (char === "," || char === "—") {
+      delay = 150; // short pause at commas or dashes
+    }
+
+    setTimeout(typeLetter, delay);
   } else {
     document.getElementById("nextBtn").style.display = "inline-block"; // show next button
   }
