@@ -100,6 +100,44 @@ input{
   .photo{ max-width:400px; }
   .typing-box{ font-size:20px; }
 }
+
+/* FINAL PAGE STYLING */
+.final-page{
+  background: linear-gradient(135deg,#ffd9eb,#fff0f7,#ffe6f2);
+}
+
+.final-box{
+  max-width:800px;
+  margin:30px auto;
+  background:rgba(255,255,255,0.8);
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 8px 25px rgba(255,105,180,0.15);
+  line-height:1.8;
+  font-size:18px;
+}
+
+.one-more-thing{
+  margin-top:25px;
+  font-size:22px;
+  font-weight:700;
+  color:#ff4da6;
+  animation: glowText 1.5s infinite alternate;
+}
+
+@keyframes glowText{
+  from{
+    opacity:0.7;
+    transform:scale(1);
+  }
+  to{
+    opacity:1;
+    transform:scale(1.03);
+  }
+}
+</style>
+</head>
+<body>
 </style>
 </head>
 <body>
@@ -222,25 +260,32 @@ Distance may come between us, but our hearts will always beat as one 💓🐰�
 <button onclick="nextPage(11)">Next</button>
 </div>
 
+
 <!-- PAGE 11 FINAL -->
-<div class="page" id="page11">
-<div class="sticker top-left">🦆</div>
-<div class="sticker top-right">🎂</div>
-<div class="sticker bottom-left">🐰</div>
+<div class="page final-page" id="page11">
+  <div class="sticker top-left">🦆</div>
+  <div class="sticker top-right">🎂</div>
+  <div class="sticker bottom-left">🐰</div>
 
-<h2>Forever Yours ❤️</h2>
-<p>Baby, I love you endlessly 😘💖 Every moment with you makes my heart race 🐰💛  
-This digital surprise is just the beginning… I hope it made you smile, giggle, and feel super special today ✨🎉  
-I guess I might be the first one to impress you with something like this, but know there are many more surprises waiting for you in the future 🌟💞  
-Even through distances, even through challenges, I will never leave you. I promise to always stand by you 💪❤️  
-I love teasing you 😏, making you laugh 😂, holding your hand 👐, and seeing your beautiful smile light up my world 🌞🌻  
-Every birthday, every celebration, every random moment—we will make memories together 💖🎂  
-You are my rabbit 🐰, my sunshine ☀️, my peace in chaos 🌸, and my forever love ❤️💫  
-I won’t just be in your life digitally—I will be there physically, hugging you, cutting the cake, taking photos, laughing and loving with you 😍🎂  
-I love you to the core of my soul, baby, and I will keep loving you more each day 🐰💞  
-Happy 18th Birthday, my girl 🎉💖 You are my everything, my today, tomorrow, and always 🌟</p>
+  <h2>Forever Yours ❤️</h2>
+
+  <div class="final-box">
+    <p>
+      Baby, I love you endlessly 😘💖 Every moment with you makes my heart race 🐰💛  
+      This digital surprise is just the beginning… I hope it made you smile, giggle, and feel super special today ✨🎉  
+      I guess I might be the first one to impress you with something like this, but know there are many more surprises waiting for you in the future 🌟💞  
+      Even through distances, even through challenges, I will never leave you. I promise to always stand by you 💪❤️  
+      I love teasing you 😏, making you laugh 😂, holding your hand 👐, and seeing your beautiful smile light up my world 🌞🌻  
+      Every birthday, every celebration, every random moment—we will make memories together 💖🎂  
+      You are my rabbit 🐰, my sunshine ☀️, my peace in chaos 🌸, and my forever love ❤️💫  
+      I won’t just be in your life digitally—I will be there physically, hugging you, cutting the cake, taking photos, laughing and loving with you 😍🎂  
+      I love you to the core of my soul, baby, and I will keep loving you more each day 🐰💞  
+      Happy 18th Birthday, my girl 🎉💖 You are my everything, my today, tomorrow, and always 🌟
+    </p>
+
+    <p class="one-more-thing">I’m still not done… one last thing is waiting for you 💖</p>
+  </div>
 </div>
-
 <script>
 
 /* PAGE SYSTEM */
