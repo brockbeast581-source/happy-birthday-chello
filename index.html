@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Birthday Surprise</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
 <style>
 body{
   margin:0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   background: linear-gradient(135deg,#ffe6f0,#fff5f9);
   overflow-x:hidden;
 }
@@ -54,15 +54,15 @@ input{
 .typing-box{
   max-width:700px;
   margin:60px auto;
-  background:white;
+  background:rgba(255,255,255,0.85);
   padding:30px;
-  border-radius:15px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.1);
+  border-radius:22px;
+  box-shadow:0 8px 25px rgba(255,105,180,0.15);
   font-size:18px;
-  line-height:1.7;
+  line-height:1.9;
   text-align:center;
+  backdrop-filter: blur(6px);
 }
-
 /* PHOTO SLIDES */
 .photo{
   width:100%;
@@ -135,13 +135,41 @@ input{
     transform:scale(1.03);
   }
 }
-</style>
-</head>
-<body>
-</style>
-</head>
-<body>
+/* CUTE HEADINGS */
+h1, h2{
+  font-family:'Pacifico', cursive;
+  color:#ff4da6;
+  text-shadow:0 2px 10px rgba(255,255,255,0.6);
+}
+  /* FLOATING HEARTS */
+.floating-heart{
+  position:fixed;
+  bottom:-30px;
+  font-size:20px;
+  pointer-events:none;
+  z-index:0;
+  opacity:0.8;
+  animation: floatHeart linear forwards;
+}
 
+@keyframes floatHeart{
+  0%{
+    transform:translateY(0) scale(1);
+    opacity:0.9;
+  }
+  100%{
+    transform:translateY(-120vh) scale(1.5);
+    opacity:0;
+  }
+}
+
+/* Keep content above hearts */
+.page{
+  z-index:2;
+}
+</style>
+</head>
+<body>
 <!-- PAGE 1 COUNTDOWN -->
 <div class="page" id="page1">
 <h1>🎉 Special Day Countdown 🎉</h1>
@@ -293,7 +321,15 @@ function showPage(n){
   document.querySelectorAll('.page').forEach(p=>p.style.display='none');
   document.getElementById('page'+n).style.display='block';
 }
-function nextPage(n){ showPage(n); }
+function nextPage(n){
+  showPage(n);
+
+  if(n === 3){
+    document.getElementById("typing").innerHTML = "";
+    i = 0;
+    type();
+  }
+}
 
 /* COUNTDOWN */
 const target = new Date("March 16, 2026 00:00:00").getTime();
@@ -325,25 +361,240 @@ function checkPassword(){
 }
 
 /* TYPING EFFECT */
-const text=`When I first saw you at our relative’s wedding on November 10, 2022, time literally stopped for me. Not in the dramatic cinema way 🎬… but in that quiet, overwhelming way where everything around you keeps moving, yet inside you, something freezes completely. The music was playing 🎶, people were talking, kids were running around, relatives were laughing loudly… but the moment my eyes found you, all of it faded into the background like a muted scene. In that single second, it felt like Cupid didn’t just shoot an arrow — he aimed straight at my soul 🏹❤️
-I still remember the lights shining above, the scent of flowers in the air 🌸, the decorations glowing softly ✨… but somehow, all of that became blur. You stood there, unaware that someone across the hall had just lost control of his heartbeat. My heart beat in a way it never had before 💓. It wasn’t calm. It wasn’t steady. It was confused, excited, nervous, and strangely certain at the same time.
-I didn’t understand what was happening… but I knew one thing — you were not ordinary. You were different. You were special 🌷. There was something about the way you smiled, something about the way you carried yourself, something about the way your eyes sparkled when you laughed. It didn’t feel temporary. It didn’t feel like a crush. It felt important.
-And the funny part? You had absolutely no idea 😅. There I was trying to act normal, pretending to talk casually, while inside my brain was shouting, “Bro, this is not normal!” 🤦‍♂️🔥 My heart had clearly made a decision without even consulting me.
-From that day, without even realizing it, you slowly became part of my everyday thoughts. Not in an obsessive way… but in a peaceful way. You became my calm in chaos 🌊, my smile during random boring afternoons ☀️, my quiet comfort during stressful nights 🌙. Even when we didn’t talk much, even when things felt uncertain, your existence alone gave me reassurance. It was strange and beautiful at the same time 🌼.
-I waited for you. Not for attention. Not for time pass. Not because I had nothing better to do. But because what I felt was real ❤️‍🔥. Four long years. Four years of silently choosing you. Four years of telling myself, “If it’s meant to be, it will be.” Four years of praying in small quiet moments 🙏 that maybe one day, you would look at me the way I looked at you.
-There were nights I questioned myself. There were days I felt foolish. There were moments I almost gave up. But every time I remembered your smile, something inside me said, “Stay.” 🕊️ So I stayed. Not loudly. Not dramatically. Just patiently.
-And when you finally accepted me… that moment healed every second of waiting 🥹💫 It felt like the universe gently whispered, “See? I told you.” All those doubts, all those fears, all those lonely nights suddenly made sense. It was worth it. Every single second.
-Because now… it is not “you” or “me.” It is US 🤍 And this “US” means more to me than those four years ever could. It’s not just a word. It’s a promise. It’s a partnership. It’s two imperfect people choosing each other every single day.
-Listen to me carefully, my girl — I will never leave you. Not when things are easy. Not when things are hard. Not when life tests us. If the world stands against you 🌍, I will stand in front of you. If problems come, we face them together. If pain comes, we heal together. If success comes, we celebrate louder than everyone else together 🥂✨
-You are not just someone I love. You are my safe place 🏡. My rabbit 🐰. My soft corner. My chaos and my calm. You didn’t just enter my life — you slowly became my life. You became part of my habits, my plans, my dreams, my future thoughts 🌈.
-And yes… sometimes you’re dramatic 😌. Sometimes you overthink. Sometimes you act like you don’t need reassurance — but I know you do. And I love that about you too. I love your strength 💪. I love your vulnerability 💕. I love your stubbornness. I love the way you pretend to be serious but end up laughing first 😂.
-You are not perfect. And neither am I. But somehow, together, we feel right. And that feeling is rare ✨.
-On your birthday, I don’t just wish you happiness 🎂. I promise to be part of it. I promise to support your dreams 🌟. I promise to clap the loudest when you win. I promise to hold you when you’re tired. I promise to protect your heart the way I protect my own 💞.
-This is your 18th birthday — a new chapter 📖. A new phase. Life will change. Age will change. Months will pass. People will come and go. But one thing will stay constant — me choosing you.
-Maybe today I’m giving you a digital surprise 💻🎁. Maybe I’m writing words on a screen. But one day, I won’t need a website. I’ll be there beside you. I’ll hold your hand. I’ll stand next to you while you cut the cake 🎂. I’ll wipe the cream off your cheek. I’ll take pictures with you 📸. I’ll make sure your birthday feels warm, real, unforgettable.
-Because you are not just my present. You are my future 🛤️.
-Thank you for loving me. Thank you for choosing me. Thank you for believing in us. Thank you for becoming my “US.”
-I love you in a way that words will never be enough to explain 💖✨ And no matter how many birthdays pass, no matter how old we grow, I will always look at you the same way I did on November 10, 2022 — like time just stopped… and my heart just found home 🏠💘`;
+const text=const story=`Hey babyyy ❤️🐰
+
+If you’re reading this right now… first of all… I hope you’re smiling like a cutie 🥹💖  
+And if you’re not smiling yet… then by the time you finish reading this, I know you will 😌✨
+
+I really hope you liked all the little surprises I made for you till now 🎁💻  
+From the game… to the memories… to every tiny detail hidden in all of this… everything was made with so much love, only for you 🤍  
+I wanted this birthday to feel special… not just like another day, but like a memory you’ll hold close to your heart forever 🌙💫
+
+Andddd… now comes the part you definitely expected 😌📜  
+Because obviously… how can your birthday be complete without your favourite long paragraph guy? 😌❤️  
+So yes my love… he is officially present 💌✨
+
+Come here, sit properly, and read this slowly baby 🫶  
+Because this is not just a paragraph…  
+This is my heart talking to its favourite person 🥹💘
+
+Before we go forward… let’s go back for a moment 🌸  
+Let’s take a small recap of our journey…  
+Of how “you” and “me” slowly, beautifully, and unexpectedly became “US” 🤍✨
+
+Because some stories are not meant to be rushed…  
+Some stories are meant to be felt 🌙  
+And ours?  
+Ours is one of the most beautiful things that has ever happened to me 💖
+
+When I first saw you at our relative’s wedding on November 10, 2022, time literally stopped for me ⏳❤️  
+Not in some overdramatic cinema style 🎬… but in that quiet, overwhelming way where everything around you keeps moving, yet inside you, something freezes completely.  
+The music was playing 🎶, people were talking, kids were running around, relatives were laughing loudly… but the moment my eyes found you, all of it faded into the background like a muted scene.  
+In that one second, it honestly felt like Cupid didn’t just shoot an arrow… he aimed straight at my soul 🏹💘
+
+I still remember the lights above, the scent of flowers in the air 🌸, the decorations glowing softly ✨… but somehow, all of that became a blur.  
+You stood there, completely unaware that someone across the hall had just lost control of his heartbeat 💓  
+My heart beat in a way it never had before.  
+It wasn’t calm. It wasn’t steady.  
+It was confused, excited, nervous, and strangely certain all at the same time 😭❤️
+
+I didn’t fully understand what was happening back then… but I knew one thing for sure — you were not ordinary.  
+You were different.  
+You were special 🌷  
+There was something about the way you smiled, something about the way you carried yourself, something about the way your eyes sparkled when you laughed ✨  
+It didn’t feel temporary.  
+It didn’t feel like a random crush.  
+It felt important… like my heart had noticed something my mind hadn’t understood yet 💭💖
+
+And the funniest part? 😭  
+You had absolutely no idea 😌  
+There I was trying to act normal, pretending to talk casually, while inside my brain was literally screaming, “Bro… this is NOT normal!” 🤦‍♂️🔥  
+My heart had clearly made a life decision without even consulting me 😂❤️
+
+From that day, without even realizing it, you slowly became part of my everyday thoughts 🌤️  
+Not in a loud way… not in a dramatic way… but in the softest, most peaceful way possible 🤍  
+You became my calm in chaos 🌊  
+My smile during random boring afternoons ☀️  
+My quiet comfort during stressful nights 🌙  
+Even when we didn’t talk much… even when things felt uncertain… even when there was distance, silence, or confusion… your existence alone gave me a strange kind of reassurance 🕊️✨  
+And that feeling?  
+It was beautiful.
+
+I waited for you.  
+Not for attention.  
+Not for time pass.  
+Not because I had nothing better to do.  
+But because what I felt was real ❤️‍🔥
+
+Four long years…  
+Four years of silently choosing you.  
+Four years of carrying your name in my heart in ways I never showed loudly.  
+Four years of telling myself, “If it’s meant to be, it will be.” 🌌  
+Four years of praying in small quiet moments 🙏 that maybe one day, somehow, you would look at me the way I looked at you.
+
+There were nights I questioned myself.  
+There were days I felt foolish.  
+There were moments I almost gave up.  
+There were times when waiting felt heavy, confusing, and painful 😞  
+But every single time I remembered your smile… something inside me said, “Stay.” 🕊️  
+So I stayed.  
+Not loudly.  
+Not dramatically.  
+Not for show.  
+Just patiently… honestly… and with love ❤️
+
+And when you finally accepted me…  
+That moment healed every second of waiting 🥹💫  
+It felt like the universe gently whispered in my ear, “See? I told you.” 🌠  
+All those doubts… all those fears… all those lonely nights… all those silent prayers… suddenly made sense.  
+Every tear, every overthinking night, every moment of uncertainty — it was all worth it.  
+Every. Single. Second. ❤️
+
+Because now… it is not just “you” and “me” anymore.  
+It is US 🤍  
+And this “US” means more to me than words can ever explain.  
+It’s not just a word.  
+It’s not just a relationship status.  
+It’s a promise.  
+It’s a partnership.  
+It’s two imperfect people choosing each other every single day, no matter what 💞
+
+Listen to me carefully, my girl 💌  
+I will never leave you.  
+Not when things are easy.  
+Not when things are hard.  
+Not when life tests us.  
+Not when distance tries to challenge us.  
+Not when misunderstandings come.  
+Not when the world feels heavy 🌍
+
+If the whole world stands against you… I will stand in front of you 🛡️❤️  
+If problems come, we face them together 🤝  
+If pain comes, we heal together 🫂  
+If success comes, we celebrate louder than everyone else together 🥂✨  
+If you cry, I’ll be there.  
+If you overthink, I’ll reassure you.  
+If you feel tired, I’ll hold you.  
+If you feel alone, I’ll remind you that you have me… always 🤍
+
+You are not just someone I love.  
+You are my safe place 🏡  
+My rabbit 🐰  
+My soft corner.  
+My peace after chaos.  
+My comfort after pain.  
+My favourite notification 📱💘  
+My random smile in the middle of the day 😭❤️  
+You didn’t just enter my life…  
+You slowly became part of my life.  
+Then part of my habits.  
+Then part of my plans.  
+Then part of my dreams.  
+And before I even realized it… you became part of my future 🌈✨
+
+And yes… sometimes you’re dramatic 😌  
+Sometimes you overthink too much 😭  
+Sometimes you act like you don’t need reassurance… but I know my girl very well 😏❤️  
+I know you need love.  
+I know you need softness.  
+I know you need someone who stays.  
+And baby… I promise you, I am that person 🤍
+
+I love your strength 💪  
+I love your softness 🌸  
+I love your stubbornness 😤❤️  
+I love your little attitude 😌  
+I love the way you try to act serious but end up laughing first 😂  
+I love your flaws because they make you real.  
+I love your insecurities because trusting me with them shows how brave you are 🫶  
+I love the way you slowly open up when you feel safe 🕊️  
+I love the way you care, even when you try to hide it.  
+I love the way you make ordinary moments feel unforgettable ✨  
+I love the way you became home to a heart that didn’t even know it was searching 🏠💖
+
+You are not perfect.  
+And neither am I.  
+But somehow… together, we feel right 💞  
+And that feeling?  
+That kind of connection?  
+That kind of comfort?  
+That kind of love?  
+It’s rare.  
+It’s beautiful.  
+And I will never take it for granted 🌹
+
+On your birthday, I don’t just wish you happiness 🎂  
+I promise to be part of it.  
+I promise to support your dreams 🌟  
+I promise to clap the loudest when you win 👏❤️  
+I promise to stand beside you when life gets hard 🤍  
+I promise to protect your heart the same way I protect my own 💗  
+I promise to learn you, understand you, choose you, and love you better every single day 🫂✨
+
+This is your 18th birthday baby 🎂👑  
+A new chapter 📖  
+A new phase.  
+A new age.  
+A new version of life.  
+Life will change.  
+Time will move.  
+Months will pass.  
+People will come and go.  
+Situations will test us.  
+But one thing will stay constant — me choosing you. Again and again. Every single time. ❤️
+
+Maybe today I’m giving you a digital surprise 💻🎁  
+Maybe today I’m writing words on a screen.  
+Maybe right now all I can give you is effort, love, and pieces of my heart hidden in these pages 💌  
+But one day… I won’t need a website.
+
+One day, I’ll be there beside you 🤍  
+I’ll hold your hand while you smile at me.  
+I’ll stand next to you while you cut the cake 🎂  
+I’ll wipe the cream off your cheek 😭🍰  
+I’ll take pictures with you 📸  
+I’ll annoy you.  
+I’ll make you laugh.  
+I’ll look at you and silently thank God for bringing you into my life 🙏❤️  
+And I’ll make sure your birthday feels warm, real, safe, and unforgettable ✨
+
+Because you are not just my present…  
+You are my future 🛤️💖
+
+Thank you for loving me.  
+Thank you for choosing me.  
+Thank you for trusting me.  
+Thank you for staying.  
+Thank you for believing in us.  
+Thank you for becoming my “US” 🤍
+
+And after everything… if life gave me another chance,  
+in every lifetime,  
+in every universe,  
+in every version of me…  
+I would still choose you.  
+Again.  
+And again.  
+And again. ❤️♾️
+
+No matter how many birthdays pass…  
+No matter how old we grow…  
+No matter how much life changes around us…  
+I will always look at you the same way I did on November 10, 2022 —  
+like time just stopped…  
+and my heart finally found home 🏠💘
+
+Happy 18th Birthday, my babyyy 🎂🐰👑  
+My girl.  
+My peace.  
+My favourite person.  
+My once-in-a-lifetime love 💖✨
+
+I love you more than these words can ever explain…  
+And I always will ❤️♾️
+
+Forever yours,  
+Your favourite long paragraph guy 😌💌`;
 let i=0;
 function type(){
  if(i<text.length){
@@ -373,11 +624,29 @@ function moveNo(btn){
  btn.style.left=Math.random()*200-100+"px";
  btn.style.top=Math.random()*200-100+"px";
 }
+/* FLOATING HEARTS */
+function createFloatingHeart(){
+  const heart = document.createElement("div");
+  heart.className = "floating-heart";
 
-window.onload=function(){
- showPage(1);
- type();
+  const hearts = ["💖","💕","💗","💘","💞"];
+  heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (16 + Math.random() * 18) + "px";
+  heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 8000);
 }
+window.onload=function(){
+  showPage(1);
+  setInterval(createFloatingHeart, 350);
+}
+  
 </script>
 
 </body>
