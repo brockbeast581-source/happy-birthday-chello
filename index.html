@@ -241,7 +241,7 @@ h1, h2{
 <!-- PAGE 4 PHOTO 1 -->
 <div class="page" id="page4">
 <img src="photo1.jpg" class="photo">
-<div class="caption">✨ The first time I saw you in your elegant sari, my heart literally skipped a beat 💖🌸.
+<div class="caption">✨ The first time I saw you in your elegant saee, my heart literally skipped a beat 💖🌸.
 It felt like magic, like the world stopped for just us 🌟🐰.
 I couldn’t believe someone could be this beautiful 😍💛.
 Every glance, every smile of yours made me feel butterflies in my stomach 🦋💞.</div>
@@ -372,17 +372,27 @@ function nextPage(n){
 }
 
 /* COUNTDOWN */
-const target = new Date("March 16, 2026 00:00:00").getTime();
-setInterval(()=>{
- let now=new Date().getTime();
- let d=target-now;
- let days=Math.floor(d/(1000*60*60*24));
- let h=Math.floor((d%(1000*60*60*24))/(1000*60*60));
- let m=Math.floor((d%(1000*60*60))/(1000*60));
- let s=Math.floor((d%(1000*60))/1000);
- document.getElementById("countdown").innerHTML=
- days+"d "+h+"h "+m+"m "+s+"s";
-},1000);
+/* COUNTDOWN */
+const target = new Date("March 16, 2026 23:59:59").getTime();
+
+const countdownInterval = setInterval(() => {
+  let now = new Date().getTime();
+  let d = target - now;
+
+  if (d <= 0) {
+    document.getElementById("countdown").innerHTML = "🎉 It's Her Special Day Baby 💖🎂";
+    clearInterval(countdownInterval);
+    return;
+  }
+
+  let days = Math.floor(d / (1000 * 60 * 60 * 24));
+  let h = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let m = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
+  let s = Math.floor((d % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML =
+    days + "d " + h + "h " + m + "m " + s + "s";
+}, 1000);
 
 /* MUSIC */
 function toggleMusic(){
